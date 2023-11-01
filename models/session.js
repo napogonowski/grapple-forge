@@ -11,6 +11,7 @@ const SessionSchema = new Schema(
     // rating ?
     // hour progression?
     // session number ?
+    // rolls
   },
   {
     timestamps: true,

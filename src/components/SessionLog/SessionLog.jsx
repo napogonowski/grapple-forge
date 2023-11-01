@@ -6,8 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { Link } from "react-router-dom";
 export default function SessionLog({ userItems }) {
-  // console.log("here!!", userItems)
   return (
     <>
       <div>
@@ -23,13 +23,16 @@ export default function SessionLog({ userItems }) {
           </TableHeader>
           <TableBody>
             {userItems.map((item, index) => (
-              
               <TableRow key={index}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{item.classType}</TableCell>
                 <TableCell>{item.technique}</TableCell>
                 <TableCell>{new Date(item.date).toDateString()}</TableCell>
-                <TableCell>View</TableCell>
+                <TableCell>
+                  <Link to={`{?selectedId=${item._id}`}>
+                    <button>Details</button>
+                  </Link>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

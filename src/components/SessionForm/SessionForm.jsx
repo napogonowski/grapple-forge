@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as sessionService from "../../utilities/session-service";
 export default function SessionForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     classType: "",
     date: new Date(),
@@ -24,6 +26,7 @@ export default function SessionForm() {
         technique: "",
         notes: "",
       });
+      navigate("/sessions");
     } catch (error) {
       console.log(error);
     }

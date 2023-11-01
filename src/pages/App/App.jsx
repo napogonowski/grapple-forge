@@ -5,6 +5,7 @@ import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
 import HomePage from "../HomePage/HomePage";
 import SessionPage from "../SessionPage/SessionPage";
+import SessionShowPage from "../SessionShowPage/SessionShowPage";
 import AddSessionPage from "../AddSessionPage/AddSessionPage";
 import NavBar from "../../components/NavBar/NavBar";
 
@@ -19,6 +20,7 @@ export default function App() {
           <Routes>
             <Route path="/home" element={<HomePage />} />
             <Route path="/sessions" element={<SessionPage user={user} />} />
+            <Route path="/sessions/*" element={<SessionShowPage user={user} />} />
             <Route path="/sessions/new" element={<AddSessionPage />} />
             {/* Route components in here */}
             <Route path="/*" element={<Navigate to="/home" />} />

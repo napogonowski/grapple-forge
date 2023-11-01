@@ -8,3 +8,11 @@ export async function createItem(formData) {
 export async function getUserItems() {
   return sendRequest(BASE_URL);
 }
+
+export async function getOneItem(selectedId) {
+  return sendRequest(`${BASE_URL}/${selectedId}`);
+}
+
+export async function deleteOneItem(selectedId) {
+  return sendRequest(`${BASE_URL}/${selectedId}`, "DELETE");
+}
