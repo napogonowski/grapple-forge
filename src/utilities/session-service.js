@@ -10,8 +10,10 @@ export async function createItem(formData) {
 }
 
 export async function getUserItems(user){
+  console.log(user)
   try{
     const res = await sessionAPI.getUserItems(user);
+    console.log("service log", res)
     return res; 
 
   } catch (error){

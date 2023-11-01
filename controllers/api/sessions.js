@@ -23,7 +23,7 @@ async function createItem(req, res) {
 
 async function index(req, res) {
   try {
-    const items = await Session.findById({ user: req.user._id });
+    const items = await Session.find({ user: req.user._id });
     res.json(items);
   } catch (error) {
     console.log(error);
