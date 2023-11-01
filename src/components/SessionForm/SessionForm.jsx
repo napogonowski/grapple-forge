@@ -30,7 +30,6 @@ export default function SessionForm() {
   }
   return (
     <>
-      <h1>Session Form Here</h1>
       <div>
         <form autoComplete="off" onSubmit={_handleSubmit}>
           <label>Class Type</label>

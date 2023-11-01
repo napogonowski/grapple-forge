@@ -8,6 +8,9 @@ const SessionSchema = new Schema(
     technique: { type: String, required: true },
     notes: { type: String, required: true },
     user: { type: Schema.Types.ObjectId, ref: "User" },
+    // rating ?
+    // hour progression?
+    // session number ?
   },
   {
     timestamps: true,
