@@ -37,3 +37,12 @@ export async function deleteOneItem(selectedId) {
     console.log(error);
   }
 }
+
+export async function editItem(editItem) {
+  try {
+    const res = await sessionAPI.editItem(editItem);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+}

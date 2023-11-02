@@ -16,3 +16,8 @@ export async function getOneItem(selectedId) {
 export async function deleteOneItem(selectedId) {
   return sendRequest(`${BASE_URL}/${selectedId}`, "DELETE");
 }
+
+export async function editItem(editItem) {
+  const selectedId = editItem._id;
+  return sendRequest(`${BASE_URL}/${selectedId}`, "PUT", editItem);
+}

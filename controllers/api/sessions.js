@@ -5,6 +5,7 @@ module.exports = {
   index,
   show,
   delete: deleteOne,
+  update,
 };
 
 async function createItem(req, res) {
@@ -47,6 +48,18 @@ async function deleteOne(req, res) {
     await selectedItem.deleteOne();
     const newSessionList = await Session.find({ user: req.params._id });
     res.json(newSessionList);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function update(req, res) {
+  try {
+    const itemId = req.parrams._id;
+    const updatedItem = await Session.findByIdAndUpdate(itemId, req.body, {
+      new: true,
+    });
+    res.json(updatedItem);
   } catch (error) {
     console.log(error);
   }

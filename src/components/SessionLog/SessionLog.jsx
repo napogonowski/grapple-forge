@@ -6,6 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 export default function SessionLog({ userItems }) {
   return (
@@ -30,7 +31,7 @@ export default function SessionLog({ userItems }) {
                 <TableCell>{new Date(item.date).toDateString()}</TableCell>
                 <TableCell>
                   <Link to={`{?selectedId=${item._id}`}>
-                    <button>Details</button>
+                    <Button>Details</Button>
                   </Link>
                 </TableCell>
               </TableRow>

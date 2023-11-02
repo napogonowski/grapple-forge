@@ -1,18 +1,12 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
+import IdvSessionCard from "../../components/IdvSessionCard/IdvSessionCard";
+import SessionEditForm from "../../components/SessionEditForm/SessionEditForm";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as sessionService from "../../utilities/session-service";
 export default function SessionShowPage() {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState({});
+  const [isEditing, setIsEditing] = useState(false);
   const [searchParams] = useSearchParams();
   const selectedId = searchParams.get("selectedId");
 
@@ -34,36 +28,25 @@ export default function SessionShowPage() {
     }
   }
 
+  function toggleEdit() {
+    setIsEditing(!isEditing);
+  }
+
   useEffect(() => {
     getOneItem(selectedId);
   }, []);
   return (
     <>
-      <div>
-        <h1>Session Details</h1>
-        <div>
-          <Card>
-            <CardHeader>
-              <CardTitle>Session Number #</CardTitle>
-              <CardDescription>
-                {new Date(selectedItem.date).toDateString()}
-              </CardDescription>
-              <CardTitle>{selectedItem.classType}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <h5>{selectedItem.technique}</h5>
-              <p>{selectedItem.notes}</p>
-            </CardContent>
-            <CardFooter>
-              <Button>Edit</Button>
-              <Button onClick={() => _handleDelete(selectedId)}>Delete</Button>
-              <Link to="/sessions">
-                <Button>Back</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        </div>
-      </div>
+      {isEditing ? (
+        <SessionEditForm selectedItem={selectedItem} toggleEdit={toggleEdit} />
+      ) : (
+        <IdvSessionCard
+          selectedItem={selectedItem}
+          _handleDelete={_handleDelete}
+          toggleEdit={toggleEdit}
+          selectedId={selectedId}
+        />
+      )}
     </>
   );
 }
