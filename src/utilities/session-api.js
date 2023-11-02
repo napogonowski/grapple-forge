@@ -18,6 +18,8 @@ export async function deleteOneItem(selectedId) {
 }
 
 export async function editItem(editItem) {
+  console.log("API log ", editItem);
   const selectedId = editItem._id;
+  console.log("api", selectedId);
   return sendRequest(`${BASE_URL}/${selectedId}`, "PUT", editItem);
 }

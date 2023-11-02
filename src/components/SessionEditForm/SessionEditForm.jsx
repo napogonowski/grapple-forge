@@ -1,8 +1,9 @@
 import * as sessionService from "../../utilities/session-service";
 import { Button } from "../ui/button";
 import { useState } from "react";
-export default function SessionEditForm({ selectedItem, toggleEdit }) {
+export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
   const [editItem, setEditItem] = useState({
+    _id: selectedItem._id,
     classType: selectedItem.classType,
     date: selectedItem.date,
     technique: selectedItem.technique,
@@ -17,6 +18,8 @@ export default function SessionEditForm({ selectedItem, toggleEdit }) {
     e.preventDefault();
     try {
       const updatedItem = await sessionService.editItem(editItem);
+      // console.log("handleSave function", updatedItem)
+      onSaved(updatedItem);
       toggleEdit();
     } catch (error) {
       console.log(error);
@@ -27,7 +30,7 @@ export default function SessionEditForm({ selectedItem, toggleEdit }) {
     <>
       <div>
         <h1>Edit Form</h1>
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={_handleSubmit}>
           <label>Class Type: </label>
           <input
             type="text"

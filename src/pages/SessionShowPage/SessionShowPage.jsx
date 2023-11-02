@@ -28,6 +28,10 @@ export default function SessionShowPage() {
     }
   }
 
+  function _handleSaved(item) {
+    setSelectedItem(item);
+  }
+
   function toggleEdit() {
     setIsEditing(!isEditing);
   }
@@ -38,7 +42,11 @@ export default function SessionShowPage() {
   return (
     <>
       {isEditing ? (
-        <SessionEditForm selectedItem={selectedItem} toggleEdit={toggleEdit} />
+        <SessionEditForm
+          selectedItem={selectedItem}
+          toggleEdit={toggleEdit}
+          onSaved={setSelectedItem}
+        />
       ) : (
         <IdvSessionCard
           selectedItem={selectedItem}

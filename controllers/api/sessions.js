@@ -55,7 +55,8 @@ async function deleteOne(req, res) {
 
 async function update(req, res) {
   try {
-    const itemId = req.parrams._id;
+    const itemId = req.params.id;
+    console.log("controller", itemId);
     const updatedItem = await Session.findByIdAndUpdate(itemId, req.body, {
       new: true,
     });

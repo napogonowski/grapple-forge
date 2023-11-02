@@ -5,7 +5,7 @@ import {
   CardTitle,
   CardDescription,
   CardFooter,
-} from "../ui/card";
+} from "../ui/card"; 
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 export default function IdvSessionCard({
