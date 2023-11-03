@@ -2,8 +2,10 @@ import SessionForm from "../../components/SessionForm/SessionForm";
 export default function AddSessionPage() {
   return (
     <>
-      <div>
-        <h1>Add New Session</h1>
+      <div className="mt-20">
+        <h1 className="text-4xl font-semibold tracking-tight ">
+          Add New Session
+        </h1>
         <SessionForm />
       </div>
     </>

@@ -19,14 +19,14 @@ export default function SessionPage({ user }) {
 
   return (
     <>
-      <div>
-        <h1>SESSION PAGE</h1>
-        <Link to="/sessions/new">
-          <Button>Add Session</Button>
-        </Link>
-
-        <h2>Session History</h2>
+      <div className="mt-20">
+        <h2 className="text-4xl font-extrabold tracking-wide lg:text-5xl mb-10">
+          Session History
+        </h2>
         <SessionLog userItems={userItems} />
+        <Link to="/sessions/new">
+          <Button className="mt-10 p-5 transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-amber-500 duration-300 ">Add Session</Button>
+        </Link>
       </div>
     </>
   );

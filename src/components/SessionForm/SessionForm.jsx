@@ -1,3 +1,7 @@
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
+import { Input } from "../ui/input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as sessionService from "../../utilities/session-service";
@@ -33,41 +37,49 @@ export default function SessionForm() {
   }
   return (
     <>
-      <div>
-        <form autoComplete="off" onSubmit={_handleSubmit}>
-          <label>Class Type</label>
-          <input
+      <div className="flex justify-center mt-5">
+        <form
+          className="grid grid-cols-2 w-1/2 m-5 text-left border-2 rounded-md p-5"
+          autoComplete="off"
+          onSubmit={_handleSubmit}
+        >
+          <Label className="p-3 text-lg ">Class Type</Label>
+          <Input
+            className="p-3 mb-3"
             type="text"
             name="classType"
             value={formData.classType}
             onChange={_handleChange}
           />
 
-          <label>Date</label>
-          <input
+          <Label className="p-3 text-lg ">Date</Label>
+          <Input
+            className="p-3 mb-3"
             type="date"
             name="date"
             value={formData.date}
             onChange={_handleChange}
           />
 
-          <label>Technique(s)</label>
-          <input
+          <Label className="p-3 text-lg ">Technique(s)</Label>
+          <Input
+            className="p-3 mb-3"
             type="text"
             name="technique"
             value={formData.technique}
             onChange={_handleChange}
           />
 
-          <label>Notes</label>
-          <textarea
+          <Label className="p-3 text-lg ">Notes</Label>
+          <Textarea
+            className="p-3 mb-5 "
             type="text"
             name="notes"
             value={formData.notes}
             onChange={_handleChange}
           />
 
-          <button>Submit</button>
+          <Button className="col-span-2 m-5">Submit</Button>
         </form>
       </div>
     </>

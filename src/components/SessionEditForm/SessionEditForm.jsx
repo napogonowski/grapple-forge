@@ -1,5 +1,9 @@
 import * as sessionService from "../../utilities/session-service";
 import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+
 import { useState } from "react";
 export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
   const [editItem, setEditItem] = useState({
@@ -28,42 +32,52 @@ export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
 
   return (
     <>
-      <div>
-        <h1>Edit Form</h1>
-        <form autoComplete="off" onSubmit={_handleSubmit}>
-          <label>Class Type: </label>
-          <input
+      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl text-center mt-10	">
+        Edit Form
+      </h1>
+      <div className="flex justify-center mt-10">
+        <form
+          className="grid grid-cols-2 w-1/2 m-5 text-left border-2 rounded-md p-5"
+          autoComplete="off"
+          onSubmit={_handleSubmit}
+        >
+          <Label className="p-3 text-lg	 ">Class Type: </Label>
+          <Input
+            className="p-3 mb-3 "
             type="text"
             name="classType"
             value={editItem.classType}
             onChange={_handleChange}
           />
 
-          <label>Date: </label>
-          <input
+          <Label className="p-3 text-lg ">Date: </Label>
+          <Input
+            className="p-3 mb-3"
             type="date"
             name="date"
             value={editItem.date}
             onChange={_handleChange}
           />
 
-          <label>Technique(s): </label>
-          <input
+          <Label className="p-3 text-lg ">Technique(s): </Label>
+          <Input
+            className="p-3 mb-3"
             type="text"
             name="technique"
             value={editItem.technique}
             onChange={_handleChange}
           />
 
-          <label>Notes: </label>
-          <textarea
+          <Label className="p-3 text-lg ">Notes: </Label>
+          <Textarea
+            className="p-3 mb-5 "
             type="text"
             name="notes"
             value={editItem.notes}
             onChange={_handleChange}
           />
 
-          <Button>Save</Button>
+          <Button className="col-span-2 m-3">Save</Button>
         </form>
       </div>
     </>

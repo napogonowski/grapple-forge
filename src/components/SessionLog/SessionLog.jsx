@@ -31,7 +31,9 @@ export default function SessionLog({ userItems }) {
                 <TableCell>{new Date(item.date).toDateString()}</TableCell>
                 <TableCell>
                   <Link to={`{?selectedId=${item._id}`}>
-                    <Button>Details</Button>
+                    <Button className="m-1 p-5 transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-amber-500 duration-300 ">
+                      Details
+                    </Button>
                   </Link>
                 </TableCell>
               </TableRow>
