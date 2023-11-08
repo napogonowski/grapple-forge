@@ -6,6 +6,7 @@ module.exports = {
   show,
   delete: deleteOne,
   update,
+  getLastItem,
 };
 
 async function createItem(req, res) {
@@ -61,6 +62,21 @@ async function update(req, res) {
       new: true,
     });
     res.json(updatedItem);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getLastItem(req, res) {
+  try {
+    const lastItem = await Session.findOne({}).sort({ createdAt: -1 }).exec();
+
+    // guard
+    if (!lastItem) {
+      return res.status(404).json({ message: "No Session Found" });
+    }
+    console.log("controller log", lastItem);
+    res.json(lastItem);
   } catch (error) {
     console.log(error);
   }
