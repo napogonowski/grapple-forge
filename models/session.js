@@ -5,7 +5,7 @@ const SessionSchema = new Schema(
   {
     classType: { type: String, required: true },
     date: { type: Date, required: true },
-    technique: { type: String, required: true },
+    technique: { type: Schema.Types.ObjectId, ref: "Technique" },
     notes: { type: String, required: true },
     user: { type: Schema.Types.ObjectId, ref: "User" },
     // rating ?

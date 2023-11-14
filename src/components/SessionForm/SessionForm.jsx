@@ -5,6 +5,7 @@ import { Input } from "../ui/input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as sessionService from "../../utilities/session-service";
+import * as techniqueService from "../../utilities/technique-service";
 export default function SessionForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -23,7 +24,32 @@ export default function SessionForm() {
   async function _handleSubmit(e) {
     e.preventDefault();
     try {
-      const newSessionItem = await sessionService.createItem(formData);
+      // handling the technique data
+      // either have to create or get the technique via the users input
+      const techniqueData = { name: formData.technique };
+      const existingTechnique = await techniqueService.getTechniqueByName(
+        formData.technique
+      );
+      // variable to hold either new or exisiting technique ID
+      let techniqueId;
+
+      if (!existingTechnique) {
+        const createdTechnique = await techniqueService.createTechnique(
+          techniqueData
+        );
+        techniqueId = createdTechnique._id;
+      } else {
+        techniqueId = existingTechnique._id;
+      }
+
+      const newSessionItemData = {
+        ...formData,
+        technique: techniqueId,
+      };
+
+      const newSessionItem = await sessionService.createItem(
+        newSessionItemData
+      );
       setFormData({
         classType: "",
         date: new Date(),

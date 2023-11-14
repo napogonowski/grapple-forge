@@ -9,6 +9,7 @@ import {
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 export default function SessionLog({ userItems }) {
+  console.log(userItems);
   return (
     <>
       <div>

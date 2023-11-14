@@ -10,44 +10,33 @@ import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 export default function HomeSessionCard({
   selectedItem,
-  _handleDelete,
-  toggleEdit,
-  selectedId,
 }) {
   return (
     <>
-      <div className="flex justify-center mt-10 ">
+      <div className="flex justify-center mt-5 ">
         <Card>
           <CardHeader>
-            <CardTitle>Session Number #</CardTitle>
+            <CardTitle>{selectedItem.classType}</CardTitle>
 
             <CardDescription>
               {new Date(selectedItem.date).toDateString()}
             </CardDescription>
           </CardHeader>
-          <CardTitle>{selectedItem.classType}</CardTitle>
           <CardContent>
             <h5 className="mt-3">{selectedItem.technique}</h5>
             <p>{selectedItem.notes}</p>
           </CardContent>
-          <CardFooter className="m-3 ">
-            <Link to="/sessions">
-              <Button className="m-1 p-5 transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-amber-500 duration-300 ">
-                Back
+          <CardFooter className="m-3 justify-center	">
+            <Link to={`/sessions/{?selectedId=${selectedItem._id}`}>
+              <Button className="m-2 p-5  transition  delay-150 bg-black hover:bg-amber-500 duration-300 ">
+                Details
               </Button>
             </Link>
-            <Button
-              className="m-1 p-5 transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-amber-500 duration-300 "
-              onClick={toggleEdit}
-            >
-              Edit
-            </Button>
-            <Button
-              className="m-1 p-5 transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-amber-500 duration-300 "
-              onClick={() => _handleDelete(selectedId)}
-            >
-              Delete
-            </Button>
+            <Link to="/sessions">
+              <Button className="m-2 p-5 transition  delay-150 bg-black hover:bg-amber-500 duration-300 ">
+                All Sessions
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       </div>

@@ -20,16 +20,19 @@ export default function HomePage() {
     getLastItem();
   }, []);
 
+  console.log("Homepage log __", lastItem);
   return (
     <>
       <div>
         <h1>GRAPPLE FORGE</h1>
         <h4>Month info/ recap </h4>
         <h4>Next Training Sessions is ... </h4>
-
-        <h4>Previous Session</h4>
-        <IdvSessionCard selectedItem={lastItem} />
-        <HomeSessionCard selectedItem={lastItem} />
+        <div className="mt-10">
+          <h4 className="text-4xl font-extrabold tracking-wide lg:text-5xl mb-5">
+            Previous Session
+          </h4>
+          <HomeSessionCard selectedItem={lastItem} />
+        </div>
       </div>
     </>
   );
