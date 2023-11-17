@@ -9,7 +9,7 @@ import {
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 export default function HomeSessionCard({ selectedItem }) {
-  // console.log(selectedItem);
+  console.log("What inside selectedItem", selectedItem);
   return (
     <>
       <div className="flex justify-center mt-5 ">
@@ -22,8 +22,8 @@ export default function HomeSessionCard({ selectedItem }) {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <h5 className="mt-3">{selectedItem.technique.name}</h5>
-            <p>{selectedItem.notes}</p>
+            <h5 className="mt-3">{selectedItem.technique && selectedItem.technique.name}</h5>
+            <p className="truncate">{selectedItem.notes}</p>
           </CardContent>
           <CardFooter className="m-3 justify-center	">
             <Link to={`/sessions/{?selectedId=${selectedItem._id}`}>

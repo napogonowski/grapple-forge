@@ -17,3 +17,12 @@ export async function createTechnique(technique) {
     console.log(error);
   }
 }
+
+export async function getLastItem() {
+  try {
+    const res = await techniqueAPI.getLastItem();
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+}

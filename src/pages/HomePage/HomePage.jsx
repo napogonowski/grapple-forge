@@ -18,10 +18,8 @@ export default function HomePage() {
 
   useEffect(() => {
     getLastItem();
-  }, [getLastItem]);
+  }, []);
 
-  console.log("Homepage log __", lastItem);
-  console.log("HELLLLLO");
 
   return (
     <>

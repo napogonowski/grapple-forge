@@ -13,6 +13,7 @@ export default function SessionShowPage() {
   async function getOneItem(selectedId) {
     try {
       const item = await sessionService.getOneItem(selectedId);
+      console.log("SSP function ", item);
       setSelectedItem(item);
     } catch (error) {
       console.log(error);

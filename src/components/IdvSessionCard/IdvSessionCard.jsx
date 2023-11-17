@@ -14,6 +14,7 @@ export default function IdvSessionCard({
   toggleEdit,
   selectedId,
 }) {
+  console.log("card log ", selectedItem);
   return (
     <>
       <div className="flex justify-center mt-10 ">
@@ -27,7 +28,7 @@ export default function IdvSessionCard({
           </CardHeader>
           <CardTitle>{selectedItem.classType}</CardTitle>
           <CardContent>
-            <h5 className="mt-3">{selectedItem.technique}</h5>
+            <h5 className="mt-3">{selectedItem.technique && selectedItem.technique.name}</h5>
             <p>{selectedItem.notes}</p>
           </CardContent>
           <CardFooter className="m-3 ">

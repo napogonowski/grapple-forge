@@ -8,6 +8,7 @@ import SessionPage from "../SessionPage/SessionPage";
 import SessionShowPage from "../SessionShowPage/SessionShowPage";
 import AddSessionPage from "../AddSessionPage/AddSessionPage";
 import NavBar from "../../components/NavBar/NavBar";
+import TechniquePage from "../TechniquePage/TechniquePage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/sessions/new" element={<AddSessionPage />} />
             {/* Route components in here */}
             <Route path="/*" element={<Navigate to="/home" />} />
+            <Route path="/technique" element={<TechniquePage />} />
           </Routes>
         </>
       ) : (

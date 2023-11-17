@@ -8,3 +8,7 @@ export async function getTechniqueByName(name) {
 export async function createTechnique(technique) {
   return sendRequest(BASE_URL, "POST", { technique });
 }
+
+export async function getLastItem() {
+  return sendRequest(`${BASE_URL}/last`);
+}
