@@ -9,7 +9,6 @@ import {
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 export default function SessionLog({ userItems }) {
-  console.log(userItems);
   return (
     <>
       <div>
@@ -28,7 +27,7 @@ export default function SessionLog({ userItems }) {
               <TableRow key={index}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{item.classType}</TableCell>
-                <TableCell>{item.technique}</TableCell>
+                <TableCell>{item.technique.name}</TableCell>
                 <TableCell>{new Date(item.date).toDateString()}</TableCell>
                 <TableCell>
                   <Link to={`{?selectedId=${item._id}`}>

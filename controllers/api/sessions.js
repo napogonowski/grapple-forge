@@ -27,7 +27,10 @@ async function createItem(req, res) {
 
 async function index(req, res) {
   try {
-    const items = await Session.find({ user: req.user._id });
+    const items = await Session.find({ user: req.user._id }).populate(
+      "technique",
+      "name"
+    );
     res.json(items);
   } catch (error) {
     console.log(error);
@@ -69,7 +72,13 @@ async function update(req, res) {
 
 async function getLastItem(req, res) {
   try {
-    const lastItem = await Session.findOne({}).sort({ createdAt: -1 }).exec();
+    
+    console.log("we are getting into the function ");
+    const lastItem = await Session.findOne({ user: req.user._id })
+      .sort({ createdAt: -1 })
+      .populate("technique", "name")
+      .exec();
+    console.log("session controller log", lastItem);
 
     // guard
     if (!lastItem) {
@@ -78,6 +87,7 @@ async function getLastItem(req, res) {
     console.log("controller log", lastItem);
     res.json(lastItem);
   } catch (error) {
-    console.log(error);
+    console.error("Error in getLastItem:", error);
+    res.status(500).json({ message: "Server Error" });
   }
 }

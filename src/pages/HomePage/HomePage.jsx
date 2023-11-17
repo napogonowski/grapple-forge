@@ -1,16 +1,16 @@
 import * as sessionService from "../../utilities/session-service";
 import { useState, useEffect } from "react";
-import IdvSessionCard from "../../components/IdvSessionCard/IdvSessionCard";
 import HomeSessionCard from "../../components/IdvSessionCard/HomeSessionCard";
 export default function HomePage() {
   const [lastItem, setLastItem] = useState({});
 
   async function getLastItem() {
     try {
+      console.log("hello its started");
       const lastSession = await sessionService.getLastItem();
       console.log("home page log ", lastSession);
       setLastItem(lastSession);
-      console.log(lastItem);
+      // console.log(lastItem);
     } catch (error) {
       console.log(error);
     }
@@ -18,9 +18,11 @@ export default function HomePage() {
 
   useEffect(() => {
     getLastItem();
-  }, []);
+  }, [getLastItem]);
 
   console.log("Homepage log __", lastItem);
+  console.log("HELLLLLO");
+
   return (
     <>
       <div>
