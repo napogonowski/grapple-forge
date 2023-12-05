@@ -40,8 +40,8 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div className="flex">
-        <div className="flex-1">
+      <div className="flex m-10">
+        <div className="flex-1 p-10">
           <h2 className="text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tighter transition-colors first:mt-0">
             Sign up
           </h2>
