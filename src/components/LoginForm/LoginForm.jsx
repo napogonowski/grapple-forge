@@ -31,23 +31,23 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div className="  ">
-      <div className="flex-1 p-10 ">
-        <h2 className="text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tighter transition-colors first:mt-0">
+    <div className=" flex m-10 ">
+      <div className="flex-1 p-10 lg:max-w-7xl= lg:item-center justify-center ">
+        <h2 className="text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tighter transition-colors first:mt-0">
           Log in
         </h2>
-        <p className="text-left ml-11 italic text-base">
+        <p className="text-center md:text-left ml-11 italic text-base">
           Welcome back Juijiteiro:
         </p>
 
         <form
-          className=" p-10 text-base "
+          className=" p-10 "
           autoComplete="off"
           onSubmit={handleSubmit}
         >
-          <Card className="p-2 m-2">
+          <Card className="p-2 m-2 lg:p-10 lg:m-5 ">
             <Input
-              className="mb-4 text-base"
+              className="mb-4 text-base text-center md:text-left "
               type="text"
               name="email"
               placeholder="Email"
@@ -56,7 +56,7 @@ export default function LoginForm({ setUser }) {
               required
             />
             <Input
-              className="mb-4 text-base"
+              className="mb-4 text-base text-center md:text-left"
               type="password"
               name="password"
               placeholder="Password"

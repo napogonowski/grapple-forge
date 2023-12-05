@@ -42,16 +42,16 @@ export default class SignUpForm extends Component {
     return (
       <div className="flex">
         <div className="flex-1">
-          <h2 className="text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tighter transition-colors first:mt-0">
+          <h2 className="text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tighter transition-colors first:mt-0">
             Sign up
           </h2>
-          <p className="text-left ml-11 italic text-base">
+          <p className="text-center md:text-left ml-11 italic text-base">
             Create your account below:
           </p>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <Card className="p-3 m-10">
               <Input
-                className="mb-4 text-base"
+                className="mb-4 text-base text-center md:text-left"
                 placeholder="Name"
                 type="text"
                 name="name"
@@ -60,7 +60,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <Input
-                className="mb-4 text-base"
+                className="mb-4 text-base text-center md:text-left"
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -69,7 +69,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <Input
-                className="mb-4 text-base"
+                className="mb-4 text-base text-center md:text-left"
                 placeholder="Password"
                 type="password"
                 name="password"
@@ -78,7 +78,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <Input
-                className="mb-4 text-base"
+                className="mb-4 text-base text-center md:text-left"
                 placeholder="Confirm Password"
                 type="password"
                 name="confirm"
