@@ -63,50 +63,48 @@ export default function SessionForm() {
   }
   return (
     <>
-      <div className="flex justify-center mt-5">
-        <form
-          className="grid grid-cols-2 w-1/2 m-5 text-left border-2 rounded-md p-5"
-          autoComplete="off"
-          onSubmit={_handleSubmit}
-        >
-          <Label className="p-3 text-lg ">Class Type</Label>
-          <Input
-            className="p-3 mb-3"
-            type="text"
-            name="classType"
-            value={formData.classType}
-            onChange={_handleChange}
-          />
+      <div className="flex">
+        <div className="flex-1 mx-auto max-w-4xl">
+          <form autoComplete="off" onSubmit={_handleSubmit}>
+            <div className="m-5 justify-center border-2 rounded-md p-5">
+              <Input
+                className="p-3 mb-3 text-base"
+                type="text"
+                name="classType"
+                value={formData.classType}
+                onChange={_handleChange}
+                placeholder="Class Type"
+              />
 
-          <Label className="p-3 text-lg ">Date</Label>
-          <Input
-            className="p-3 mb-3"
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={_handleChange}
-          />
+              <Input
+                className="p-3 mb-3 text-base"
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={_handleChange}
+              />
 
-          <Label className="p-3 text-lg ">Technique(s)</Label>
-          <Input
-            className="p-3 mb-3"
-            type="text"
-            name="technique"
-            value={formData.technique}
-            onChange={_handleChange}
-          />
+              <Input
+                className="p-3 mb-3 text-base"
+                type="text"
+                name="technique"
+                value={formData.technique}
+                onChange={_handleChange}
+                placeholder="Techniques learned"
+              />
 
-          <Label className="p-3 text-lg ">Notes</Label>
-          <Textarea
-            className="p-3 mb-5 "
-            type="text"
-            name="notes"
-            value={formData.notes}
-            onChange={_handleChange}
-          />
-
-          <Button className="col-span-2 m-5">Submit</Button>
-        </form>
+              <Textarea
+                className="p-3 text-base"
+                type="text"
+                name="notes"
+                value={formData.notes}
+                onChange={_handleChange}
+                placeholder="Session notes"
+              />
+            </div>
+            <Button className="m-5 p-5 text-base mx-auto">Submit</Button>
+          </form>
+        </div>
       </div>
     </>
   );

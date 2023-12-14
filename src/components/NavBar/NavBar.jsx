@@ -8,7 +8,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="p-10 bg-red-500 text-left">
+    <nav className="p-10 bg-stone-300 text-left">
       <span>Welcome {user.name}</span>
       &nbsp; | &nbsp;
       <Link to="/home">Home</Link>

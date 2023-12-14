@@ -20,7 +20,7 @@ export default function SessionPage({ user }) {
   return (
     <>
       <div className="mt-20">
-        <h2 className="text-4xl font-extrabold tracking-wide lg:text-5xl mb-10">
+        <h2 className="text-4xl font-bold tracking-tight lg:text-5xl mb-8">
           Session History
         </h2>
         <SessionLog userItems={userItems} />

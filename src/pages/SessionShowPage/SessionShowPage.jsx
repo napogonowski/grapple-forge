@@ -43,11 +43,16 @@ export default function SessionShowPage() {
   return (
     <>
       {isEditing ? (
-        <SessionEditForm
-          selectedItem={selectedItem}
-          toggleEdit={toggleEdit}
-          onSaved={setSelectedItem}
-        />
+        <div>
+          <h1 className="p-10 text-4xl font-bold tracking-tight lg:text-5xl">
+            Edit Form
+          </h1>
+          <SessionEditForm
+            selectedItem={selectedItem}
+            toggleEdit={toggleEdit}
+            onSaved={setSelectedItem}
+          />
+        </div>
       ) : (
         <IdvSessionCard
           selectedItem={selectedItem}

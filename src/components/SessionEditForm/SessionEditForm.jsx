@@ -6,13 +6,16 @@ import { Textarea } from "../ui/textarea";
 
 import { useState } from "react";
 export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
+  const formattedDate = new Date(selectedItem.date).toISOString().split("T")[0];
+
   const [editItem, setEditItem] = useState({
     _id: selectedItem._id,
     classType: selectedItem.classType,
-    date: selectedItem.date,
-    technique: selectedItem.technique,
+    date: formattedDate,
+    technique: selectedItem.technique.name,
     notes: selectedItem.notes,
   });
+
   function _handleChange(e) {
     const { name, value } = e.target;
     const newItem = { ...editItem, [name]: value };
@@ -22,63 +25,57 @@ export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
     e.preventDefault();
     try {
       const updatedItem = await sessionService.editItem(editItem);
-      // console.log("handleSave function", updatedItem)
       onSaved(updatedItem);
       toggleEdit();
     } catch (error) {
       console.log(error);
     }
   }
-
+  console.log("Edit Page", selectedItem);
   return (
     <>
-      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl text-center mt-10	">
-        Edit Form
-      </h1>
-      <div className="flex justify-center mt-10">
-        <form
-          className="grid grid-cols-2 w-1/2 m-5 text-left border-2 rounded-md p-5"
-          autoComplete="off"
-          onSubmit={_handleSubmit}
-        >
-          <Label className="p-3 text-lg	 ">Class Type: </Label>
-          <Input
-            className="p-3 mb-3 "
-            type="text"
-            name="classType"
-            value={editItem.classType}
-            onChange={_handleChange}
-          />
+      <div className="flex">
+        <div className="flex-1 mx-auto max-w-4xl ">
+          <form autoComplete="off" onSubmit={_handleSubmit}>
+            <div className="m-5 justify-center border-2 rounded-md p-5">
+              <Input
+                className="p-3 mb-3 text-base"
+                type="text"
+                name="classType"
+                value={editItem.classType}
+                onChange={_handleChange}
+              />
 
-          <Label className="p-3 text-lg ">Date: </Label>
-          <Input
-            className="p-3 mb-3"
-            type="date"
-            name="date"
-            value={editItem.date}
-            onChange={_handleChange}
-          />
+              <Input
+                className="p-3 mb-3 text-base"
+                type="date"
+                name="date"
+                value={editItem.date}
+                onChange={_handleChange}
+              />
 
-          <Label className="p-3 text-lg ">Technique(s): </Label>
-          <Input
-            className="p-3 mb-3"
-            type="text"
-            name="technique"
-            value={editItem.technique}
-            onChange={_handleChange}
-          />
+              <Input
+                className="p-3 mb-3 text-base"
+                type="text"
+                name="technique"
+                value={editItem.technique}
+                onChange={_handleChange}
+              />
 
-          <Label className="p-3 text-lg ">Notes: </Label>
-          <Textarea
-            className="p-3 mb-5 "
-            type="text"
-            name="notes"
-            value={editItem.notes}
-            onChange={_handleChange}
-          />
+              <Textarea
+                className="p-3 text-base "
+                type="text"
+                name="notes"
+                value={editItem.notes}
+                onChange={_handleChange}
+              />
 
-          <Button className="col-span-2 m-3">Save</Button>
-        </form>
+              <Button className="m-5 p-5 text-base mx-auto transition delay-150  hover:bg-amber-500 duration-300">
+                Save
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

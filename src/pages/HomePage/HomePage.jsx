@@ -1,5 +1,7 @@
 import * as sessionService from "../../utilities/session-service";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/ui/button";
 import HomeSessionCard from "../../components/IdvSessionCard/HomeSessionCard";
 export default function HomePage() {
   const [lastItem, setLastItem] = useState({});
@@ -10,7 +12,6 @@ export default function HomePage() {
       const lastSession = await sessionService.getLastItem();
       console.log("home page log ", lastSession);
       setLastItem(lastSession);
-      // console.log(lastItem);
     } catch (error) {
       console.log(error);
     }
@@ -20,18 +21,18 @@ export default function HomePage() {
     getLastItem();
   }, []);
 
-
   return (
     <>
-      <div>
-        <h1>GRAPPLE FORGE</h1>
-        <h4>Month info/ recap </h4>
-        <h4>Next Training Sessions is ... </h4>
-        <div className="mt-10">
-          <h4 className="text-4xl font-extrabold tracking-wide lg:text-5xl mb-5">
-            Previous Session
-          </h4>
-          <HomeSessionCard selectedItem={lastItem} />
+      <div className="mt-10 mx-auto max-w-5xl p-10 ">
+        <div className=" grid md:grid-flow-col md:auto-cols-max md:justify-evenly md:justify-items-strech md:content-center		md:grid-cols-3 ">
+          <div className="md:col-start-2 md:col-span-3">
+            <HomeSessionCard selectedItem={lastItem} />
+          </div>
+          <Link to="/sessions">
+            <Button className="p-5 m-4 text-base transition delay-150  hover:bg-amber-500 duration-300 md:col-start-1  md:max-w-4xl md:max-h-28 md:p-20  ">
+              All Sessions
+            </Button>
+          </Link>
         </div>
       </div>
     </>
