@@ -31,21 +31,17 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div className=" flex m-10 ">
+    <div className="flex">
       <div className="flex-1 p-10 mx-auto max-w-5xl ">
-        <h2 className="text-indigo-800 text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-5xl font-semibold tracking-tighter transition-colors first:mt-0">
+        <h2 className="text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-5xl font-semibold tracking-tighter transition-colors first:mt-0">
           Log in
         </h2>
         <p className="text-center md:text-left ml-11 italic text-lg">
           Welcome back Juijiteiro:
         </p>
 
-        <form
-          className=" p-10 "
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
-          <Card className="m-2 p-6 m-5 bg-indigo-800 ">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <Card className="p-6 m-10">
             <Input
               className="mb-4 text-base text-center md:text-left min-w-max bg-slate-200  "
               type="text"
@@ -66,7 +62,10 @@ export default function LoginForm({ setUser }) {
             />
           </Card>
 
-          <Button className="p-3 m-2 w-[120px] bg-indigo-800" type="submit">
+          <Button
+            className=" p-5 text-base mx-auto transition delay-150  hover:bg-amber-500 duration-300"
+            type="submit"
+          >
             LOG IN
           </Button>
         </form>

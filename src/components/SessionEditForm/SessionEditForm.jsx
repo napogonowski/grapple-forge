@@ -39,7 +39,7 @@ export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
           <form autoComplete="off" onSubmit={_handleSubmit}>
             <div className="m-5 justify-center border-2 rounded-md p-5">
               <Input
-                className="p-3 mb-3 text-base"
+                className="p-3 mb-3 text-base bg-slate-200"
                 type="text"
                 name="classType"
                 value={editItem.classType}
@@ -47,7 +47,7 @@ export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
               />
 
               <Input
-                className="p-3 mb-3 text-base"
+                className="p-3 mb-3 text-base bg-slate-200"
                 type="date"
                 name="date"
                 value={editItem.date}
@@ -55,7 +55,7 @@ export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
               />
 
               <Input
-                className="p-3 mb-3 text-base"
+                className="p-3 mb-3 text-base bg-slate-200"
                 type="text"
                 name="technique"
                 value={editItem.technique}
@@ -63,7 +63,7 @@ export default function SessionEditForm({ selectedItem, toggleEdit, onSaved }) {
               />
 
               <Textarea
-                className="p-3 text-base "
+                className="p-3 text-base bg-slate-200 "
                 type="text"
                 name="notes"
                 value={editItem.notes}

@@ -40,18 +40,18 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div className="flex m-10 ">
+      <div className="flex">
         <div className="flex-1 p-10 mx-auto max-w-5xl ">
-          <h2 className="text-amber-500 text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-5xl font-semibold tracking-tighter transition-colors first:mt-0">
+          <h2 className="text-center md:text-left ml-11 mb-6 mt-10 scroll-m-20 border-b pb-2 text-5xl font-semibold tracking-tighter transition-colors first:mt-0">
             Sign up
           </h2>
           <p className="text-center md:text-left ml-11 italic text-lg">
             Create your account below:
           </p>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <Card className="p-6 m-10 bg-amber-500">
+            <Card className="p-6 m-10">
               <Input
-                className="mb-4 text-base text-center md:text-left bg-slate-50 min-w-max	"
+                className="mb-4 text-base text-center md:text-left bg-slate-200 min-w-max	"
                 placeholder="Name"
                 type="text"
                 name="name"
@@ -60,7 +60,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <Input
-                className="mb-4 text-base text-center md:text-left bg-slate-50	 "
+                className="mb-4 text-base text-center md:text-left bg-slate-200	 "
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -69,7 +69,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <Input
-                className="mb-4 text-base text-center md:text-left bg-slate-50	"
+                className="mb-4 text-base text-center md:text-left bg-slate-200	"
                 placeholder="Password"
                 type="password"
                 name="password"
@@ -78,7 +78,7 @@ export default class SignUpForm extends Component {
                 required
               />
               <Input
-                className="text-base text-center md:text-left bg-slate-50	"
+                className="text-base text-center md:text-left bg-slate-200	"
                 placeholder="Confirm Password"
                 type="password"
                 name="confirm"
@@ -87,7 +87,11 @@ export default class SignUpForm extends Component {
                 required
               />
             </Card>
-            <Button className="bg-amber-500 p-3 m-2 w-[120px]" type="submit" disabled={disable}>
+            <Button
+              className="m-5 p-5 text-base mx-auto transition delay-150 hover:bg-amber-500 duration-300"
+              type="submit"
+              disabled={disable}
+            >
               SIGN UP
             </Button>
           </form>

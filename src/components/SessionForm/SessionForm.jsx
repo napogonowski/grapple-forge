@@ -68,7 +68,7 @@ export default function SessionForm() {
           <form autoComplete="off" onSubmit={_handleSubmit}>
             <div className="m-5 justify-center border-2 rounded-md p-5">
               <Input
-                className="p-3 mb-3 text-base"
+                className="p-3 mb-3 text-base bg-slate-200"
                 type="text"
                 name="classType"
                 value={formData.classType}
@@ -77,7 +77,7 @@ export default function SessionForm() {
               />
 
               <Input
-                className="p-3 mb-3 text-base"
+                className="p-3 mb-3 text-base bg-slate-200"
                 type="date"
                 name="date"
                 value={formData.date}
@@ -85,7 +85,7 @@ export default function SessionForm() {
               />
 
               <Input
-                className="p-3 mb-3 text-base"
+                className="p-3 mb-3 text-base bg-slate-200"
                 type="text"
                 name="technique"
                 value={formData.technique}
@@ -94,7 +94,7 @@ export default function SessionForm() {
               />
 
               <Textarea
-                className="p-3 text-base"
+                className="p-3 text-base bg-slate-200"
                 type="text"
                 name="notes"
                 value={formData.notes}

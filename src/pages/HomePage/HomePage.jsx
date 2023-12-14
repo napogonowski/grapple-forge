@@ -23,7 +23,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="mt-10 mx-auto max-w-5xl p-10 ">
+      <div className="mt-10 mx-auto max-w-5xl p-10  ">
         <div className=" grid md:grid-flow-col md:auto-cols-max md:justify-evenly md:justify-items-strech md:content-center		md:grid-cols-3 ">
           <div className="md:col-start-2 md:col-span-3">
             <HomeSessionCard selectedItem={lastItem} />
